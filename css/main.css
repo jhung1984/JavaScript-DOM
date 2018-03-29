@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+ul li {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+#sprite, .mainNav .box, .mainNav ul li sub {
+  background-image: url(../img/topbar.png);
+  background-repeat: no-repeat;
+  float: left; }
+
+.mainNav {
+  width: device-width;
+  height: 70px;
+  background-color: #242424;
+  position: relative; }
+  .mainNav .box {
+    margin-left: 30px;
+    width: 180px;
+    height: 70px;
+    background-position: 0 0; }
+  .mainNav ul {
+    float: left;
+    overflow: hidden; }
+    .mainNav ul li {
+      float: left;
+      margin-left: 20px; }
+      .mainNav ul li a {
+        color: #fff;
+        text-align: center;
+        line-height: 70px; }
+      .mainNav ul li sup {
+        height: 8px;
+        font-size: 8px;
+        width: inherit;
+        width: inherit;
+        color: #fff;
+        background-color: orangered;
+        border-radius: 3px; }
+      .mainNav ul li sub {
+        background-position: 220px 100px; }
+
+.secondNav {
+  width: device-width;
+  height: 30px;
+  background-color: crimson;
+  position: relative; }
+  .secondNav ul {
+    margin-left: 225px;
+    overflow: hidden;
+    float: left; }
+    .secondNav ul li {
+      float: left;
+      margin-left: 30px; }
+      .secondNav ul li a {
+        font-size: 12px;
+        color: aliceblue;
+        text-align: center;
+        line-height: 30px; }
+
+div.indexBanner {
+  position: relative;
+  width: device-width;
+  height: 336px;
+  background: #000; }
+  div.indexBanner a {
+    left: 200px;
+    position: absolute; }
+
+/*# sourceMappingURL=main.css.map */
