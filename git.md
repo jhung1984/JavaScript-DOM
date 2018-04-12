@@ -44,3 +44,4 @@ Generating public/private rsa key pair.
 
 Fatal: 拒绝合并无关的历史
 在pull 时候, 添加--allow-unrelated-histories参数 即可.
+ git pull origin master --allow-unrelated-histories   
