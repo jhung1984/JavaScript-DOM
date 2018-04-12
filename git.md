@@ -40,3 +40,7 @@ Generating public/private rsa key pair.
 首先 git remote rm origin 	//git 远程的 orgin 删除掉
  第二：git remote add origin https://github.com/jhung1984/JavaScript-DOM.git
 然后：git push -u origin master
+
+
+Fatal: 拒绝合并无关的历史
+在pull 时候, 添加--allow-unrelated-histories参数 即可.
