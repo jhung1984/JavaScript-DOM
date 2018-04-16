@@ -1,0 +1,963 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><title>linux-command-line</title></head><body><article class="markdown-body"><p>##什么是shell
+shell是一个程序，它接受从键盘输入的命令，然后把命令传递给操作系统去执行。
+bash是来自GNU项目的shell程序。
+bash是“Bourne Again Shell”的首字母缩写。
+bash是最初Unix上由Steve Bourne写成shell程序sh的增强版。
+##shell技巧
+移动光标：借助上箭头按键获得上次输入的命令。
+借助左右按键把光标定位到命令行的任意位置。
+tab：tab按键具有文件/目录/命令的补全功能。
+##shell命令
+date	日期
+cal	日历
+df	查看磁盘剩余空间。
+free	查看空闲内存。
+exit	退出shell。
+pwd	打印当前目录名。
+ls	列出目录内容
+.	指工作目录
+..	指工作目录的父目录
+cd	更改目录
+cd -	更改目录到先前的目录
+cd <del>user_name	更改工作目录到用户家目录.
+注:linux对大小写敏感且没有文件扩展名的概念.文件名支持标点符号仅限使用"."和"-"及"_".
+file    当调用file命令后，file命令会打印出文件内容的简单描述。
+less    用来浏览文本文件的程序.
+##linux系统中的目录
+/       根目录,万物之源.
+/bin    包含系统启动和运行所必须的二进制程序.
+/boot   包含Linux内核,最初的RMA磁盘映像和启动加载程序.
+/boot/grub/grub.conf or menu.lst,用来配置启动加载程序.
+/boot/vmlinuz,linux内核
+/dev    包含设备节点的特殊目录."一切皆是文件",也适用于设备.内核维护着它的支持设备.
+/etc    包含所有系统层面的配置文件.同时也包含一系列的shell脚本,在系统启动时,这些脚本会运行每个系统服务.这个目录中的任何文件都应该是可读文本文件.
+/etc/crontab,定义自动运行的任务.
+/etc/fstab,包含存储设备的列表及相关挂载点.
+/etc/passwd,包含用户账号列表.
+/home   系统会在/home下,为每个用户分配一个工作目录.
+/lib    包含核心系统程序所需的库文件.类似windows中的动态链接库.
+/lost+found 每个使用linux文件系统的格式化分区或设备,都会有这个目录.当部分恢复一个损坏的文件系统时，会用到这个目录。这个目录是空的，除非文件系统损坏。
+/media    包含可移动介质的挂载点。
+/mnt    早些的系统中，/mnt目录包含可以东介质的挂载点。
+/opt    用来安装“可选”软件。用来存储可能安装在系统中的商业软件产品。
+/proc   是一个由Linux内核维护的虚拟文件系统。它包含的文件是内核的窥视孔。这些可读的文件告诉你内核是怎样监管你的计算机的。
+/root   root账户的家目录。
+/sbin   包含“系统”二进制文件。它们是完成重大系统任务的程序，通常为超级用户保留。
+/tmp    用来存储由各种程序创建的临时文件的地方。
+/usr    包含普通用户所需要的所有程序和文件。
+/usr/bin    包含系统安装的执行程序。
+/usr/lib    包含/usr/bin目录中的程序所用的共享库。
+/usr/local  非系统发行版自带程序的安装目录。通常由源码编译的程序会安装在/usr/local/bin目录下。
+/usr/sbin   包含许多系统管理程序。
+/usr/share  包含许多由/usr/bin目录中的程序使用的共享数据。其中包括默认的配置文件、图表、桌面北京、音频文件等等。
+/usr/share/doc  包含安装在系统中的软件包的文档。
+/var    存放的是动态文件。各种数据库，假脱机文件，用户邮件等等。
+/var/log    包含日至文件、各种系统活动的记录。其中/var/log/messages很重要。
+##符号链接
+创建硬链接   ln  当创建文件硬链接，实际是为文件创建了额外的名字部分，并且名字关联到相同的数据部分。硬链接不能跨越物理设备， 硬链接不能关联目录，只能是文件。
+创建符号链接   ln -s  创建符号链接既可以使用绝对路径也可以使用相对路径名。符号链接可以关联目录。
+#命令的使用
+命令的四种形式：
+1.可执行程序.
+2.内建于shell自身的命令.
+3.shell函数.
+4.命令别名.自定义自己的命令,尖子在其他命令之上.
+##命令的识别
+type    type command    shell的内部命令,它会显示命令的类别.
+which   确定所执行程序的准确位置.只对可执行程序有效,不包括内建命令和命令别名.
+##命令的文档
+###help    得到shell内建命令的帮助文档.bash有一个内建的帮助工具.
+--help  很多执行程序支持一个--help选项,这个想象是显示命令所支持的语法和选项说明.
+###man     man program(program是要浏览的命令名)     显示程序手册页.许多可执行程序提供了一个正式的文档,叫做手册页(man page).
+###apropos 显示适当的命令.
+注意:man命令加上"-k"选项与apropos完成一样的功能.
+###whatis  显示非常简介的命令说明.
+###info    显示程序Info条目.GNU项目提供了一个命令程序手册页的替代五,称其为"info"
+###README和其它程序文档   位于/usr/share/doc目录下的文本文件,可用less阅读器来浏览.以".gz"结尾的文件是用gzip压缩程序压缩的.gzip软件包包含了一个特殊的less版本,叫做zless,可以显示由gzip压缩的文本文件内容.
+###创建自己的命令
+command1;command2;command3...
+例: cd /usr; ls; cd -
+首先使用type 检测"command name"是否被使用.通过   alias foo='cd /usr;ls/cd -'来创建命令.
+使用  unalias foo 命令来删除创建的foo命令.
+##重定向
+I/O重定向."I/O"代表输入/输出,通过此工具可以重定向命令的输入输出,命令输入输出均来自文件.也可以把多个命令联结起来组成强大的命令管道.
+###shell命令
+cat     连接文件.
+例:cat movie.mpeg.0* &gt; movie.mpeg    因为通配符总是以有序的方式展开，所以这些参数会以正确顺序安排。
+sort    排序文本行
+uniq    报道或省略重复行
+grep    打印匹配行
+wc      打印文件中换行符,字和字节个数.
+head    输出文件第一部分
+tail    输出文件最后一部分
+tee     从标准输入读取数据并写道标准输出和文件.
+许多程序都会产生某种输出.经常由两种类型组成.
+1.  程序运行结果.
+2.  状态和错误信息.
+I/O重定向允许我们梗概输出地点和输入来源.一般输入来自键盘,输出送到屏幕.通过I/O重定向,我们可以改变.
+shell将文件流的前三个称作标准输入,标准输出和错误,称为表述副0,1,2.
+###标准输出重定向
+&gt;   &gt; filename  将标准输出重定向到除屏幕意外的另一个文件.
+例:ls -l /bin/usr &gt; ls-output.txt
+&gt; text.txt  没有命令在它之前,这回清空同名的文件内容或创建空文件.
+&gt;&gt; filename 将重定向结果追加到文件内容豁后面.
+###标准错误重定向
+例:ls -l /bin/usr 2&gt;ls-error.txt 文件描述符”2”，紧挨着放在重定向操作符之前，来执行重定向标准错误到文件 ls-error.txt 任务。
+####重定向标准输出和错误到同一文件
+方法一:
+例:ls -l /bin/usr &gt; ls-output.txt 2&gt;&amp;1   首先重定向标准输出到文件 ls-output.txt，然后 重定向文件描述符2（标准错误）到文件描述符1（标准输出）使用表示法2&gt;&amp;1。重定向的顺序安排非常重要。标准错误的重定向必须总是出现在标准输出 重定向之后，要不然它不起作用。
+方法二:
+例:ls -l /bin/usr &amp;&gt; ls-output.txt   用单单一个表示法 &amp;&gt; 来重定向标准输出和错误到文件 ls-output.txt。
+####处理不需要的输出
+系统通过重定向输出结果到一个叫做”/dev/null”的特殊文件， 为我们提供了解决问题的方法。这个文件是系统设备，叫做位存储桶，它可以 接受输入，并且对输入不做任何处理。
+例:ls -l /bin/usr 2&gt; /dev/null
+###标准输入重定向
+例:cat &gt; lazy_dog.txt
+The quick brown fox jumped over the lazy dog.
+输入命令，其后输入要放入文件中的文本。输入 Ctrl-d（按住 Ctrl 键同时按下”d”），来告诉 cat，在标准输入中， 它已经到达文件末尾（EOF）.通过使用这个命令，我们 实现了世界上最低能的文字处理器！
+例:cat &lt; lazy_dog.txt
+使用"&lt;"重定向操作符,把标准输入源从键盘改到文件lazy_dog.txt.
+####管道线
+|    command1 | command2    使用管道操作符”|”（竖杠），一个命令的标准输出可以通过管道送至另一个命令的标准输入.
+例:ls -l /usr/bin | less
+####过滤器
+管道线经常用来对数据完成复杂的操作。有可能会把几个命令放在一起组成一个管道线。 通常，以这种方式使用的命令被称为过滤器。
+例:ls /bin /usr/bin | sort | less    因为我们指定了两个目录（/bin 和/usr/bin），ls 命令的输出结果由有序列表组成， 各自针对一个目录。通过在管道线中包含 sort，我们改变输出数据，从而产生一个 有序列表。
+####uniq    报道或忽略重复行
+默认情况下，从数据列表中删除任何重复行。uniq 命令经常和 sort 命令结合在一起使用。
+例:ls /bin /usr/bin | sort | uniq | less     使用 uniq 从 sort 命令的输出结果中，来删除任何重复行。如果我们想看到 重复的数据列表，让 uniq 命令带上”-d”选项.
+###wc   打印行数,字数和字节数
+wc命令是用来显示文件所包含的行数,字数和字节数.它接受标准输入。”-l”选项限制命令输出只能 报道行数。添加 wc 到管道线来统计数据，是个很便利的方法。
+###grep grep pattern [file...]  打印匹配行
+用来找到文件中的匹配文本。grep 有一些方便的选项：”-i”使得 grep 在执行搜索时忽略大小写（通常，搜索是大小写 敏感的），”-v”选项会告诉 grep 只打印不匹配的行。
+###head / tail － 打印文件开头部分/结尾部分.
+head 命令打印文件的前十行，而 tail 命令打印文件的后十行。默认情况下，两个命令 都打印十行文本，但是可以通过”-n”选项来调整命令打印的行数。
+tail 有一个选项允许你实时地浏览文件。当观察日志文件的进展时，这很有用，因为 它们同时在被写入。使用”-f”选项，tail 命令继续监测这个文件，当新的内容添加到文件后，它们会立即 出现在屏幕上。这会一直继续下去直到你输入 Ctrl-c。
+###tee － 从 Stdin 读取数据，并同时输出到 Stdout 和文件
+tee 程序从标准输入读入数据，并且同时复制数据 到标准输出（允许数据继续随着管道线流动）和一个或多个文件。当在某个中间处理 阶段来捕捉一个管道线的内容时，这很有帮助。
+例:ls /usr/bin | tee ls.txt | grep zip   在 grep 过滤管道线的内容之前，来捕捉整个目录列表到文件 ls.txt.
+##从shell眼中看世界
+###字符展开
+echo    显示一行文本。传递到 echo 命令的任一个参数都会在（屏幕上）显示出来。
+echo *  ”<em>“字符意味着匹配文件名中的任意字符，shell 在 echo 命 令被执行前把”</em>“展开成了另外的东西（在这里，就是在当前工作目录下的文件名字）。
+###路径名展开
+echo ls -d .[!.]?*  这种模式展开成所有以圆点开头，第二个字符不包含圆点，再包含至少一个字符， 并且这个字符之后紧接着任意多个字符的文件名。这个命令将正确列出大多数的隐藏文件 （但仍不能包含以多个圆点开头的文件名）。带有 -A 选项（“几乎所有”）的 ls 命令能够提供一份正确的隐藏文件清单：ls -A
+###波浪线展开
+波浪线字符"</del>"有特殊的含义.当用在一个单词的开头时,它会展开成制定用户的家目录名,如果没有制定用户名,则展开成当前用户的家目录.
+###算术表达式展开
+$((expression))     （以上括号中的）表达式是指算术表达式，它由数值和算术操作符组成。
+算术表达式只支持整数（全部是数字，不带小数点），但是能执行很多不同的操作。在算术表达式中空格并不重要，并且表达式可以嵌套。
+###花括号展开
+花括号展开模式可能包含一个开头部分叫做报头，一个结尾部分叫做附言。花括号表达式本身可 能包含一个由逗号分开的字符串列表，或者一系列的整数，或者单个的字符串。这种模式不能 嵌入空白字符。
+例:echo Number_{1..5}    echo {A..Z}     echo Front-{A,B,C}-Back
+花括号展开可以嵌套：echo a{A{1,2},B{3,4}}b
+用花括号展开创建一系列文件/目录
+例:mkdir {2007..2009}-0{1..9} {2007..2009}-{10..12}
+###参数展开
+它的许多功能和系统存储小块数据，并给每块数据命名的能力有关系。许多像这样的小块数据， 更恰当的称呼应该是变量，可供你方便地检查它们。
+例:  echo $USER
+要查看有效的变量列表,使用   printenv | less
+###命令替换
+命令替换允许我们把一个命令的输出作为一个展开模式来使用.
+例:  echo $(ls)  ls -l $(which cp)   file $(ls -l /usr/bin/* |grep zip)
+在bash中,也可以使用另一种语法---使用倒引号替代美元符号和括号.     ls -l <code>which cp</code>
+###引用
+shell 提供了一种 叫做引用的机制，来有选择地禁止不需要的展开。
+####双引号
+如果你把文本放在双引号中， shell 使用的特殊字符，都失去它们的特殊含义，被当作普通字符来看待。这意味着单词分割、路径名展开、 波浪线展开和花括号展开都将失效，然而参数展开、算术展开和命令替换 仍然执行。
+例:  ls -l "two words.txt"
+echo "this is a    test"
+在默认情况下，单词分割机制会在单词中寻找空格，制表符，和换行符，并把它们看作 单词之间的界定符。这意味着无引用的空格，制表符和换行符都不是文本的一部分， 它们只作为分隔符使用。
+echo "this is a   test"
+单词分割被禁止，内嵌的空格也不会被当作界定符，它们成为参数的一部分。 一旦加上双引号，我们的命令行就包含一个带有一个参数的命令。
+事实上，单词分割机制把换行符看作界定符，对命令替换产生了一个虽然微妙但有趣的影响。echo $(cal)与echo "$(cal)".在第一个实例中，没有引用的命令替换导致命令行包含38个参数。在第二个例子中， 命令行只有一个参数，参数中包括嵌入的空格和换行符。
+####单引号
+如果需要禁止所有的展开，我们要使用单引号。
+####转义字符
+有时候我们只想引用单个字符。我们可以在字符之前加上一个反斜杠，在这里叫做转义字符。注意在单引号中，反斜杠失去它的特殊含义，它 被看作普通字符。\n
+使用转义字符来消除文件名中一个字符的特殊含义.mv bad$filename good_filename.
+反斜杠除了作为转义字符外，也可以构成一种表示法，来代表某种 特殊字符，这些特殊字符叫做控制码。ASCII 编码表中前32个字符被用来把命令转输到电报机 之类的设备。一些编码是众所周知的（制表符，退格符，换行符，和回车符），而其它 一些编码就不熟悉了（空值，传输结束码，和确认）。
+\a 	响铃（”警告”－导致计算机嘟嘟响）
+\b 	退格符
+\n 	新的一行。在类 Unix 系统中，产生换行。
+\r 	回车符
+\t 	制表符
+这种利用反斜杠的表示法背后的思想来源于 C 编程语言， 许多其它语言也采用了这种表示方法，包括 shell。</p>
+<hr>
+<p>##键盘高级操作技巧
+将要学习的命令：
+1、clear     清空屏幕
+2、history   显示历史列表内容
+###命令行编辑
+Bash使用一个名为Readline的库（共享的例程几何，可以被不同的程序使用），用以实现命令行编辑。
+####移动光标
+Ctrl-a      移动光标到行首
+Ctrl-e      移动光标到行尾
+Ctrl-f      光标前移一个字符；和右箭头作用一样。
+Ctrl-b      光标后移一个字符；和左箭头一样。
+Alt-f       光标前移一个字。
+Alt-f       光标前移一个字。
+Alt-b       光标后移一个字。
+Ctrl-l      清空屏幕，移动光标到左上角。clear命令完成同样的工作。
+####修改文本
+Ctrl-d      删除光标位置的字符。
+Ctrl-t      光标位置的字符和光标前面的字符互换位置。
+Alt-t       光标位置的字和其前面的字互换位置。
+Alt-l       把从光标位置到字尾的字符转换成小写字母。
+Alt-u       把从光标位置到字尾的字符转换成大写字母。
+####剪切和粘贴文本
+Readline的文档使用术语killing和yanking来指我们平常所说的剪切和粘贴。剪切下来的本文被存储在一个叫做剪切环（kill-ring）的缓冲区中。
+Ctrl-k      剪切从光标位置到行为的文本。
+Ctrl-u      将剪切从光标位置到行首的文本。
+Alt-d       剪切从光标位置到词尾的文本。
+Alt-Backspace   剪切从光标位置到词头的文本。如果光标在一个单词的开头，剪切前一个单词。
+Ctrl-y      把剪切环中的文本粘贴到光标位置。
+####自动补全
+shell能帮助你的另一种方式是通过一种叫做自动补全的机制。
+Alt-？       显示可能的自动补全列表。在大多数系统中，你也可以完成这个通过按项次tab键，这会更容易些。
+Alt-*       插入所有可能的自动补全。当你想要使用多个可能的匹配项时，这个很有帮助。
+###利用历史命令
+bash维护着一个已经执行过的命令的历史离别。这个命令列表被保存在你家目录下，一个名为.bash_history的文件里。
+###搜索历史命令
+history |grep /usr/bin    以及  !88
+递增搜索    Ctrl-r  启动递增搜索，其后输入要寻找的文本。
+Ctrl-p      移动到上一个历史条目。类似于上箭头按键。
+Ctrl-n      移动到下一个历史条目。类似于下箭头按键。
+Alt-&lt;       移动到历史列表开头
+Alt-&gt;       移动到历史列表结尾,即当前命令行.
+Ctrl-r      反向递增搜索.从当前命令行开始,向上递增搜索.
+Alt-p       反向搜索,非递增顺序.输入要查找的字符串,然后按下Enter,执行搜索.
+Alt-n       向前搜索,非递增顺序.
+Ctrl-o      执行历史列表中的当前项,并移到下一个.如果你想要执行历史列表中一系列的命令,这很方便.
+###历史命令展开
+!number     重复历史列表中第number行的命令.
+!!          重复最后一次执行的命令.可能按下上箭头按键和enter键更容易.
+!string     重复最近历史列表中,以这个字符串开头的命令.
+!?string    重复最近历史列表中,包含这个字符串的命令.
+##权限
+###拥有着,组成员和其他人
+id  用于查看当前用户的身份信息.用户账号自定义在/etc/passwd 文件中,用户组定义在/etc/group文件中.这些文件随着文件/etc/shadow的变动而修改.</p>
+</article></body></html>
