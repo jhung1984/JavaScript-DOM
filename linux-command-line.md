@@ -381,5 +381,3 @@
 		tload	与xload程序相似,但是在终端画出图形.
 ##shell环境
 	
-	
->>>>>>> d3d27adc5b6cf718f9d95c07278fc83cb9edf145
