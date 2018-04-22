@@ -1,11 +1,11 @@
 ##什么是shell
-	shell是一个程序，它接受从键盘输入的命令，然后把命令传递给操作系统去执行。
-	bash是来自GNU项目的shell程序。
-	bash是“Bourne Again Shell”的首字母缩写。
-	bash是最初Unix上由Steve Bourne写成shell程序sh的增强版。
+shell是一个程序，它接受从键盘输入的命令，然后把命令传递给操作系统去执行。
+bash是来自GNU项目的shell程序。
+bash是“Bourne Again Shell”的首字母缩写。
+bash是最初Unix上由Steve Bourne写成shell程序sh的增强版。
 ##shell技巧
-    移动光标:借助上箭头按键获得上次输入的命令。借助左右按键把光标定位到命令行的任意位置。
-    tab：tab按键具有文件/目录/命令的补全功能。
+移动光标:借助上箭头按键获得上次输入的命令。借助左右按键把光标定位到命令行的任意位置。
+tab：tab按键具有文件/目录/命令的补全功能。
 ##shell命令
 	date	日期
 	cal	日历
