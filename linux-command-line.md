@@ -1,5 +1,7 @@
 ##什么是shell
 
+## 什么是shell
+
 shell是一个程序，它接受从键盘输入的命令，然后把命令传递给操作系统去执行。
 bash是来自GNU项目的shell程序。
 bash是“Bourne Again Shell”的首字母缩写。
