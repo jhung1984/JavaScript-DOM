@@ -1054,4 +1054,51 @@ mkfs(make file system 的简写),它能创建各种格式的文件系统.
 
 fsck(fle system check 的简写).
 * fsck检查文件系统的完整性.每个/etc/fstab项中的最后一个数字指定了设备的检查顺序.数字为0则相应设备不会被检查.
-* fsck修复受损的文件系统.
+* fsck修复受损的文件系统.其成功率依赖于受损怀的数量.
+
+### 1.18.8 格式化
+
+* sudo fdformat /dev/fd0
+* sudo mkfs -t msdos /dev/fd0
+
+### 1.18.9 直接把数据移入/出设备
+
+dd程序可以把数据块从一个地方复制到另一个地方.
+
+    dd if=input_file of=output_file [bs=block_size[count=blocks]]
+    例:
+        dd if=/dev/sdb of=/dev/sdc
+        dd if=/dev/sdb of=flash_drive.img
+警告:dd命令非常强大.虽然它的名字来自于"数据定义",有时候也把它叫做"清除硬盘".因为用户经常会误输入if或of的规范.
+
+### 1.18.10 创建CD-ROM映像
+
+写入一个CD-ROM
+1. 构建一个ISO映像,这就是一个CD-ROM的文件系统映像.
+2. 把这个映像文件写入到CD-ROM媒介中.
+
+#### 1.18.10.1创建一个CD-ROM的映像拷贝
+
+    dd if=/dev/cdrom of=ubuntu.iso
+这项技术也适用于DVD光盘,但不能用于音频CD,因为它们不是用文件系统来存储数据.(音频CD,看一下cdrdao命令).
+
+#### 1.18.10.2 从文件集中创建一个映像
+
+创建一个包含目录内容的iso映像文件,使用genisoimage程序.
+
+* 创建一个包含所有文件的目录.
+* 执行genisoimage来创建映像文件.
+
+    例:
+       genisoimage -o cd-rom.iso -R -J -/cd-rom-files
+       -R   选项添加元数据为Rock Ridege扩展,这允许使用长文件名和POSIX风格的文件权限.
+       -J   选项使Joliet扩展生效.这样Windows就支持长文件名了.
+
+### 1.18.11 写入CD-ROM镜像
+
+#### 1.18.11.1 直接挂载一个ISO镜像
+
+1. mkdir /mnt/iso_image
+2. mount -t iso9660 -o loop image.iso /mnt/iso_image
+添加"-o loop"选项来挂载(同时带有必需的"-t iso9660"文件系统类型),挂载这个映像文件就好像它是一台设备,把它连接到文件系统树上.
+这样就创建了一个挂载点叫做/mnt/iso_image,然后把此映像文件image.iso挂载到挂载点上.
