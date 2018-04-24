@@ -988,6 +988,20 @@ Linux发行版本质量最重要的决定因素是软件包管理系统和其支
 
 包文件识别命令
 
- 风格          命令
-    Debian       dpkg --search file_name
-    Red Hat      rpm -qf file_name
+风格          命令
+Debian       dpkg --search file_name
+Red Hat      rpm -qf file_name
+
+## 1.18 存储媒介
+
+* mount    挂载一个文件系统
+* umount   卸载一个文件系统
+* fsck     检查和修复一个文件系统
+* fdisk    分区表控制器
+* mkfs     创建文件系统
+* fdformat 格式化一张软盘
+* dd       把面向块的数据直接写入设备
+* genisoimage(mksiofs)    创建一个ISO 9660 的映像文件
+* wodim(cdrecord)    把数据写入光存储媒介
+* md5sum    计算MD5检验码
+
