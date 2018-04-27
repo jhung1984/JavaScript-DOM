@@ -1402,3 +1402,31 @@ tar(tape archive的简称)是一款制作磁带备份的工具.而它仍然被�
 * x     抽取归档文件.
 * r     追加具体的路径到归档文件的末尾.
 * t     列出归档文件的内容.
+
+### 1.21.2.2 zip
+
+zip程序既是压缩工具,也是打包工具.
+
+    zip options zipfile file...
+
+    例: zip -r playground.zip playground
+        unzip ../playground.zip
+        unzip -l playground.zip playground/dir-87/file-ZArchive: ../playground.zip
+
+对于zip命令要注意一点,就是如果制定了一个已经存在的文件包,其被更新而不是被替代.这意味着就保留此文件包,但是会添加新文件,同时替换匹配的文件.
+
+### 1.21.3 同步文件和目录
+
+rsync option source destination
+
+这里source和destination是下列选项之一:
+
+* 一个本地文件或目录
+* 一个远端文件或目录,以[user@]host:[path的形式存在
+* 一个远端rsync服务器,由rsync://[user@]host[:port]/path指定
+
+注意source和destination两者之一必须是本地文件.rsync不支持远端到远端的复制.
+
+## 1.22 正则表达式
+
+正则表达式是一种符号表示法,被用来识别文本模式.
