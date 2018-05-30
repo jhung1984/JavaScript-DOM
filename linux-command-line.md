@@ -1898,4 +1898,47 @@ shell不仅是一个功能强大的命令行接口,也是一个脚本语言解�
 
 ### 1.25.1 第一阶段:最小的文档
 
+    vim sys_info_page
+        #!/bin/bash
+        # Program to output a system information page
+        echo "<HTML>
+            <HEAD>
+                <TITLE>Page Title</TITLE>
+            </HEAD>
+            <BODY>
+                Page body.
+            </BODY>
+        </HTML>"
+    chmod 755 ~/bin/sys_info_page
+    sys_info_page > sys_info_page.html
+    firefox sys_info_page.html
 
+一个带引号的字符串可能包含换行符,因此可以包含多个文本行.Shell会持续读取文本直到遇到右引号.它在命令行中也是这样工作的.
+
+### 1.25.2 第二阶段:添加一点儿数据
+
+    #!/bin/bash
+    # Program to output a system information page
+    echo "<HTML>
+            <HEAD>
+                <TITLE>System Information Report</TITLE>
+            </HEAD>
+            <BODY>
+                <H1>System Information Report</H1>
+            </BODY>
+        </HTML>"
+
+### 1.25.3 变量和常量
+
+    #!/bin/bash
+    # Program to output a system information page
+    title="System Information Report"
+    echo "<HTML>
+            <HEAD>
+                <TITLE>$title</TITLE>
+            </HEAD>
+            <BODY>
+                <H1>$title</H1>
+            </BODY>
+        </HTML>"
+通过创建一个名为title的变量,并把"System Information Report"字符串赋值给它,就可以利用参数展开功能,把这个字符串放到文件中的多个位置.
