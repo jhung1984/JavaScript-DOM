@@ -1942,3 +1942,10 @@ shell不仅是一个功能强大的命令行接口,也是一个脚本语言解�
             </BODY>
         </HTML>"
 通过创建一个名为title的变量,并把"System Information Report"字符串赋值给它,就可以利用参数展开功能,把这个字符串放到文件中的多个位置.
+注意:如果输入失误创建了一个控变量展开值为空,这对于需要参数的命令来说,会引起混乱.
+
+    foo=foo.txt
+    foo1=foo1.txt
+    cp $foo $foo1
+    cp: missing destination file operand after 'foo.txt'
+
