@@ -1949,3 +1949,179 @@ shell不仅是一个功能强大的命令行接口,也是一个脚本语言解�
     cp $foo $foo1
     cp: missing destination file operand after 'foo.txt'
 
+当shell碰到一个变量的时候,它会自动地创建它.关于这个问题,shell要求非常宽松,这可能会导致一些问题.
+
+    foo="yes"
+    echo $foo
+    yes
+    echo $fool
+    $
+
+首先我们把"yes"赋给变量foo,然后用echo命令来显示变量值.接着,我们显示拼写错误的变量名"fool"的变量值,然后得到一个空值.这是因为shell很高兴地创建了变量fool,当shell遇到fool的时候,并且赋给fool一个空的默认值.因此,我们必须小心谨慎地拼写.
+
+变量名的规则:
+
+1. 变量名可由字母数字字符(字母和数字)和下划线字符组成.
+2. 变量名的第一个字符必须是一个字母或一个下划线.
+3. 变量名中不允许出现空格和标点符号.
+
+shell不能辨别常量和变量;它们大多数情况下是为了方便程序员.一个常用惯例是指定大写字母来表示常量,小写字母表示真正的变量.
+
+    #!/bin/bash
+    #Program to output a system information page
+    TITLE="System InformationReport For $HOSTNAME"
+    echo "<HTML>
+            <HEAD>
+                <TITLE>$title</TITLE>
+            </HEAD>
+            <BODY>
+                <H1>$title</H1>
+            </BODY>
+        </HTML>
+
+通过在标题中添加shell变量名HOSTNAME,让标题变得活泼有趣些.这个变量名是这台机器的网络名称.
+
+#### 1.25.3.1 给变量和常量赋值
+
+    variable=value
+
+这里的variable是变量的名字,value是一个字符串.不同于一些其它的编程语言,shell不会在乎变量值的类型;它把它们都看作是字符串.
+
+注意:在赋值过程中,变量名,等号和变量值之间必须没有空格.
+
+在参数展开过程中,变量名可以被花括号"{}"包围.在变量名周围的上下文变得不明确的情况下,这会很有帮助.
+
+    filename="myfile"
+    touch $filename
+    mv $filename $filename1
+    mv:missing destination file operand after 'myfile'
+因为shell把mv命令的第二个参数解释为一个新的空的变量.
+
+    mv $filename ${filename}1
+通过添加花括号,shell不再把末尾的1解释为变量名的一部分.
+
+    #!/bin/bash
+    # Program to output a system information page
+    TITLE="System Information Report For $HOSTNAME"
+    CURRENT_TIME=$(date +"%x %r %Z")
+    TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+    echo "<HTML>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+        </BODY>
+    </HTML>"
+
+### 1.25.4 Here Documents
+
+第三种文本输出方法叫做here document 或者 here script.
+一个 here document 是另外一种I/O重定向形式.
+我们在脚本文件中嵌入正文文本,然后把它发送给一个命令的标准输入.
+
+    command << token
+    text
+    token
+这里的command是一个可以接受标准输入的命令名,token是一个用来指示嵌入文本结束的字符串.
+
+    #!/bin/bash
+    # Program to output a system information page
+    TITLE="System Information Report For $HOSTNAME"
+    CURRENT_TIME=$(date +"%x %r %Z")
+    TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+    cat << _EOF_
+        <HTML>
+            <HEAD>
+                <TITLE>$TITLE</TITLE>
+            </HEAD>
+            <BODY>
+                <H1>$TITLE</H1>
+                <P>$TIME_STAMP</P>
+            </BODY>
+            </HTML>
+        _EOF_
+取代echo命令,现在我们的脚本使用cat命令和一个here document.这个字符串_EOF_(意思是"文件结尾",一个常见用法)被选作为token,并标志着嵌入文本的结尾.注意这个token必须在一行中单独出现,并且文本行中没有末尾的空格.
+
+在here document中,shell不会注意引号.引号被看作是普通的字符.这就允许我们在一个here document中可以随意的嵌入引号.
+
+Here documents可以和任意能接受标准输入的命令一块使用.
+
+    #!/bin/bash
+    # Script to retrieve a file via FTP
+    FTP_SERVER=ftp.nl.debian.org
+    FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
+    REMOTE_FILE=debian-cd_info.tar.gz
+    ftp -n << _EOF_
+    open $FTP_SERVER
+    user anonymous me@linuxbox
+    cd $FTP_PATH
+    hash
+    get $REMOTE_FILE
+    bye
+    _EOF_
+    ls -l $REMOTE_FILE
+如果我们把重定向操作符从"<<"改为"<<-",shell会忽略在此here document中开头的tab字符.这就能缩进一个here document,从而提高脚本的可读性.
+
+    #!/bin/bash
+    # Script to retrieve a file via FTP
+    FTP_SERVER=ftp.nl.debian.org
+    FTP_PATH=/debian/dists/lenny/main/installer-i386/current/images/cdrom
+    REMOTE_FILE=debian-cd_info.tar.gz
+    ftp -n <<- _EOF_
+    open $FTP_SERVER
+    user anonymous me@linuxbox
+    cd $FTP_PATH
+    hash
+    get $REMOTE_FILE
+    bye
+    _EOF_
+    ls -l $REMOTE_FILE
+
+## 1.26 自顶向下设计
+
+先确定上层步骤,然后再逐步西华这些步骤的过程被称为自顶向下设计.这种技巧允许我们把庞大而复杂的任务分割为许多小而简单的任务.自顶向下设计是一种常见的程序设计方法,尤其适合shell编程.
+
+### 1.26.1 shell函数
+
+目前我们的脚本执行以下步骤来产生HTML文档:
+
+1. 打开网页
+2. 打开网页标头
+3. 设置网页标题
+4. 关闭网页标头
+5. 打开网页主体部分
+6. 输出网页标头
+7. 输出时间戳
+8. 关闭网页主体
+9. 关闭网页
+
+为了下一阶段的开发,我们将在步骤7和8之间添加一些额外的任务.这些包括:
+
+1. 系统正常运行时间和负载.这是自上次关机或重启之后系统的运行时间,以及在几个时间间隔内当前运行在处理中的平均任务量.
+2. 磁盘空间.系统中存储设备的总使用量.
+3. 家目录空间.每个用户所使用的存储空间数量.
+
+如果对于每个任务,我们都有相应的命令,那么通过命令替换,我们就能很容易地把它们添加到我们的脚本中.
+
+    #!/bin/bash
+    # Program to output a system information page
+    TITLE="System Information Report For $HOSTNAME"
+    CURRENT_TIME=$(date +"%x %r %Z")
+    TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+    cat << _EOF_
+        <HTML>
+        <HEAD>
+            <TITLE>$TITLE</TITLE>
+        </HEAD>
+        <BODY>
+            <H1>$TITLE</H1>
+            <P>$TIME_STAMP</P>
+            $(report_uptime)
+            $(report_disk_space)
+            $(report_home_space)
+        </BODY>
+    </HTML>
+    _EOF_
+
