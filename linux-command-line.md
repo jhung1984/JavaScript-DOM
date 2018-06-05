@@ -2125,3 +2125,57 @@ Here documents可以和任意能接受标准输入的命令一块使用.
     </HTML>
     _EOF_
 
+我们可以使用两种方法创建这些额外的命令.
+
+1. 可以分别编写三个脚本,并把它们放置到环境变量PATH所列出的目录下;
+2. 可以把这些脚本作为shell函数嵌入到程序中.shell函数是位于其它脚本中的"微脚本",作为自主程序.shell函数由两种语法形式:
+    1. function name {
+        commands
+        return
+        }
+    2. name () {
+        commands
+        return
+        }
+这里的name是函数名,commands是一系列包含在函数中的命令.
+两种形式是等价的,可以交替使用.
+注意:为了使函数调用被识别出是shell函数,而不是被解释为外部程序的名字,所以在脚本中shell函数定义必须出现在函数调用之前.
+
+    #!/bin/bash
+    #Program to output a system information page
+    TITLE="System Information Report For $HOSTNAME"
+    CURRENT_TIME=$(date +"%x %r %Z")
+    TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+    report_uptime () {
+    return
+    }
+    report_disk_space () {
+    return
+    }
+    report_home_space () {
+    return
+    }
+    cat << _EOF_
+        <HTML>
+
+            <HEAD>
+
+            <TITLE>$TITLE</TITLE>
+            </HEAD>
+
+            <BODY>
+                <H1>$TITLE</H1>
+                <P>$TIME_STAMP</P>
+                    $(report_uptime)
+                    $(report_disk_space)
+                    $(report_home_space)
+            </BODY>
+
+        </HTML>
+        _EOF_
+
+shell函数的命名规则和变量一样.一个函数必须至少包含一条命令.return命令(是可选的)满足要求.
+
+### 1.26.2 局部变量
+
+局部变量只能在定义它们的shell函数中使用,并且一旦shell函数执行完毕,它们就不存在了.
