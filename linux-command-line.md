@@ -2179,3 +2179,246 @@ shell函数的命名规则和变量一样.一个函数必须至少包含一条�
 ### 1.26.2 局部变量
 
 局部变量只能在定义它们的shell函数中使用,并且一旦shell函数执行完毕,它们就不存在了.
+拥有局部变量允许程序员使用的局部变量名,可以与已存在的变量名相同,这些变量可以是全局变量,或者是其它shell函数中的局部变量,不用担心名字冲突.
+
+    #!/bin/bash
+    # local-vars: script to demonstrate local variables
+    foo=0 # global variable foo
+    funct_1 () {
+    local foo
+    # variable foo local to funct_1
+    foo=1
+    echo "funct_1: foo = $foo"
+    }
+    funct_2 () {
+    local foo
+    # variable foo local to funct_2
+    foo=2
+    echo "funct_2: foo = $foo"
+    }
+    echo "global:
+    foo = $foo"
+    funct_1
+    echo "global: foo = $foo"
+    funct_2
+
+通过在变量名之前加上单词local,来定义局部变量.这就创建了一个只对其所在的shell函数起作用的变量.在这个shell函数之外,这个变量不再存在.
+这个功能允许shell函数能保持各自以及与它们所在脚本之间的独立性.
+
+### 1.26.3 保持脚本运行
+
+    #!/bin/bash
+# Program to output a system information page
+TITLE="System Information Report For $HOSTNAME"
+CURRENT_TIME=$(date +"%x %r %Z")
+TIME_STAMP="Generated $CURRENT_TIME, by $USER"
+report_uptime () {
+	cat <<- _EOF_
+	<H2>System Uptime</H2>
+	<PRE>$(uptime)</PRE>
+	_EOF_
+}
+report_disk_space () {
+	cat <<- _EOF_
+        <H2>Disk Space Utilization</H2>
+        <PRE>$(df -h)</PRE>
+	_EOF_
+}
+report_home_space () {
+	cat <<- _EOF_
+        <H2>Home Space Utilization</H2>
+	<PRE>$(du -sh /home/*)</PRE>
+	_EOF_
+}
+cat << _EOF_
+<HTML>
+<HEAD>
+<TITLE>$TITLE</TITLE>
+</HEAD>
+<BODY>
+<H1>$TITLE</H1>
+<P>$TIME_STAMP</P>
+$(report_uptime)
+$(report_disk_space)
+$(report_home_space)
+</BODY>
+</HTML>
+_EOF_
+
+## 1.27 流程控制:if分支结构
+
+    怎样使我们的报告生成器脚本能适应运行此脚本的用户的权限,在脚本中基于测试条件结果,来"改变方向".
+
+### 1,27,1 if
+
+逻辑如下:
+    x=5
+    if [ $x = 5]; then
+        echo "x equals 5."
+    else
+        echo "x does not equal 5."
+    fi
+
+if语句语法如下:
+
+    if commands; then
+        commands
+    [elif commands; then
+        commands...]
+    [else
+        commands]
+    fi
+这里的commands是指一系列命令.
+
+### 1.27.2 退出状态
+
+当命令执行完毕后,命令(包含我们编写的脚本和shell函数)会给系统发送一个值,叫做退出状态.这个值是一个0到255之间的整数,说明命令执行成功或是失败.按照惯例,一个零值说明成功,其它所有值说明失败.shell提供了一个参数(echo $?),我们可以用它来检查退出状态.
+
+### 1.27.3 测试
+
+目前为止,经常与if一块使用的命令是test.这个test命令执行各种各样的检查与比较.
+
+1. test expression
+2. [ expression]
+
+这里的expression是一个表达式,其执行结果是true或者是false.当表达式为真时,这个test命令返回一个零退出状态,当表达式为假时,test命令退出状态为1.
+
+#### 1.27.3.1 文件表达式
+
+    表达式               如果为真
+    file1 -ef file2     file1和file2拥有相同的索引号(通过硬链接两个文件名指向相同的文件).
+    file1 -nt file2     file1新与file2.
+    file1 -ot file2     file1早于file2.
+    -b file             file存在并且是一个块(设备)文件.
+    -c file             file存在并且是一个字符(设备)文件.
+    -d file             file存在并且是一个目录.
+    -e file             file存在.
+    -f file             file存在并且是一个普通文件.
+    -g file             file存在并且设置了组ID.
+    -G file             file存在并且由有效组ID拥有.
+    -k file             file存在并且设置了它的"sticky bit".
+    -L file             file存在并且是一个符号链接.
+    -O file             file存在并且由有效用户ID拥有.
+    -p file             file存在并且是一个命名管道.
+    -r file             file存在并且可读(有效用户有可读权限).
+    -s file             file存在且其长度大于零.
+    -S file             file存在且是一个网络socket.
+    -t fd               fd是一个定向到终端/从终端定向到文件描述符.
+                        这可以被用来决定是否重定向了标准输入/输出错误.
+    -u file             file存在并且设置了setuid位.
+    -w file             file存在并且可写.
+    -x file             file存在并且可执行.
+
+#### 1.27.3.2 字符串表达式
+
+    表达式               如果为真
+    string              string不为null.
+    -n string           字符串string的长度大于零.
+    -z string           字符串string的长度为零.
+    string1 = string2   string1和string2相同.单或双等号都可以,不过双等号更受欢迎.
+    string1 != string2  string1 和string2不相同.
+    string1 > string2   string1排列在string2之后.
+    string1 < string2   string1排列在string2之前.
+
+注意:这个>和<表达式操作符必须用引号引起来(或者使用反斜杠转义),当与test一块使用的时候.如果不这样,它们会被shell解释为重定向操作符,造成潜在地破坏结果.同时也要注意虽然bash文档生命排序遵从当前语系的排列规则,但并不这样.将来的bash版本,包括4.0,使用ASCII(POSIX)排序规则.
+
+    #!/bin/bash
+    # test-string: evaluate the value of a string
+    ANSWER=maybe
+    if [ -z "$ANSWER" ]; then
+    echo "There is no answer." >&2
+    exit 1
+    fi
+    if [ "$ANSWER" = "yes" ]; then
+    echo "The answer is YES."
+    elif [ "$ANSWER" = "no" ]; then
+    echo "The answer is NO."
+    elif [ "$ANSWER" = "maybe" ]; then
+    echo "The answer is MAYBE."
+    else
+    echo "The answer is UNKNOWN."
+    fi
+
+在这个脚本中,我们计算常量ANSWER.我们首先确定是否此字符串为空.如果为空,我们就终止脚本,并把退出状态设为零.注意这个应用于echo命令的重定向操作.其把错误信息"There is no answer."重定向到标准错误,这是处理错误信息的"合理"方法.如果字符串不为空,我们就计算字符串的值,看看它是否等于"yes","no"或者"maybe".为此使用elif,它是"else if"的简写.通过使用elif,我们能够构建更复杂的逻辑测试.
+
+#### 1.27.3.3 整型表达式
+
+    表达式                       如果为真
+    integer1 -eq integer2       integer1等于integer2.
+    integer1 -ne integer2       integer1不等于integer2.
+    integer1 -le integer2       integer1小于或等于integer2.
+    integer1 -lt integer2       integer1小于integer2.
+    integer1 -ge integer2       integer1大于或等于integer2.
+    integer1 -gt integer2       integer1大于integer2.
+
+例:
+    #!/bin/bash
+    # test-integer: evaluate the value of an integer.
+    INT=-5
+    if [ -z "$INT" ]; then
+    echo "INT is empty." >&2
+    exit 1
+    fi
+    if [ $INT -eq 0 ]; then
+    echo "INT is zero."
+    else
+    if [ $INT -lt 0 ]; then
+    echo "INT is negative."
+    else
+    echo "INT is positive."
+    fi
+    if [ $((INT % 2)) -eq 0 ]; then
+    echo "INT is even."
+    else
+    echo "INT is odd."
+    fi
+    fi
+确定一个整数是偶数还是奇数。通过用模数 2 对数字执行
+求模操作,就是用数字来除以 2,并返回余数,从而知道数字是偶数还是奇数。
+
+### 1.27.4 更现代的测试版本
+
+    [[ expression]]
+这里,类似于 test,expression 是一个表达式,其计算结果为真或假。这个 [[ ]] 命令非
+常相似于 test 命令(它支持所有的表达式),但是增加了一个重要的新的字符串表达式:
+    string1 =~ regex
+其返回值为真,如果 string1 匹配扩展的正则表达式 regex。这就为执行比如数据验证等任
+务提供了许多可能性。在我们前面的整数表达式示例中,如果常量 INT 包含除了整数之外的
+任何数据,脚本就会运行失败。这个脚本需要一种方法来证明此常量包含一个整数。使用 [[
+]] 和 =∼ 字符串表达式操作符.
+
+    #!/bin/bash
+    # test-integer2: evaluate the value of an integer.
+    INT=-5
+    if [[ "$INT" =~ ^-?[0-9]+$ ]]; then
+        if [ $INT -eq 0 ]; then
+            echo "INT is zero."
+        else
+        if [ $INT -lt 0 ]; then
+        echo "INT is negative."
+        else
+        echo "INT is positive."
+            fi
+        if [ $((INT % 2)) -eq 0 ]; then
+        echo "INT is even."
+        else
+        echo "INT is odd."
+            fi
+        fi
+    else
+    echo "INT is not an integer." >&2
+    exit 1
+    fi
+
+通过应用正则表达式,我们能够限制 INT 的值只是字符串,其开始于一个可选的减号,随
+后是一个或多个数字。这个表达式也消除了空值的可能性。
+
+[[ ]] 添加的另一个功能是 == 操作符支持类型匹配,正如路径名展开所做的那样。例如:
+
+    FILE=foo.bar
+    if [[ $FILE == foo.* ]]; then
+    echo "$FILE matches pattern 'foo.*'"
+    fi
+这就使 [[ ]] 有助于计算文件和路径名。
+
+### 1.27.5 (()) 为整数设计
