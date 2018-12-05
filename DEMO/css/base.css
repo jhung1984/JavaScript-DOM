@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/* 设置字符集 */
+/* css初始化 */
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img{
+    margin: 0;
+    padding: 0;
+}
+/* 清除默认padding和margin */
+fieldset,img,input,button{
+    border:none;
+    padding:0;
+    margin:0;
+    outline-style:none;
+}
+/* 清除表单类标签默认样式 */
+ul,ol{
+    list-style:none;
+}
+/* 清除列表小圆点或序号 */
+input{
+    padding-top: 0;
+    padding-bottom: 0;
+    font-family: "Simsun","宋体"；
+}
+/* 清除文本框上下padding并设置字体 */
+select,input{
+    vertical-align: middle;
+}
+/* 设置下拉列表和表单的垂直对齐方式。 */
+select,input,textarea{
+    font-size: 12px;
+    margin:0;
+}
+/* 设置上述标签的字体大小并清除margin */
+textarea{
+    resize:none;
+}
+/* 固定文本框大小，用户无法调整元素的尺寸。防止拖动 */
+img{
+    border: 0;
+    vertical-align:middle;
+}
+/* 设置图片的垂直方式，可以去掉图片底侧默认的3像素 */
+table{
+    border-collapse:collapse;
+}
+/* 合并表格边框 */
+body{
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color: #666;
+    background: #fff;
+}
+/* 字号 行高 字体。Arial，Verdana指的是宋体，"\5b8b\4f53"是宋体的另一种表示方式 */
+.clearfix:before,.clearfix:after{
+    content:"";
+    display:table;
+}
+.clearfix{
+    *zoom:1;
+    /* IE 7/6兼容 */
+}
+/* 清除浮动的方式，双伪元素清除浮动 */
+a{
+    color:#666;
+    text-decoration:none;
+}
+/* 清除a下划线并设置字体颜色 */
+a:hover{
+    color:#c81623;
+}
+/* 设置悬浮时的颜色 */
+h1,h2,h3,h4,h5,h6{
+    text-decoration:none;
+    font-weight:normal;
+    font-size:100%;
+}
+/* 设置标题元素的文本修饰和字号 */
+s,i,em{
+    font-style:normal;
+    text-decoration:none;
+}
+/* 用作CSS钩子，里面放一下比较小的内容 */
+.col-red{
+    color:#c81623 !important;
+}
+/* 文档的颜色 */
+.w{
+    width:1210px;
+    margin:0 auto;
+}
+/* 版心 */
+.fl{
+    float:left;
+}
+/* 左浮动 */
+.fr{
+    float:right;
+}
+/* 右浮动 */
+.al{
+    text-align:left;
+}
+/* 文本居左 */
+.ac{
+    text-align:center;
+}
+/* 文本居中 */
+.ar{
+    text-align:right;
+}
+/* 文本居右 */
+.hide{
+    display:hide;
+}
+/* 隐藏元素 */
+
+/* ---------------------------------------------------- */
+/* ---------------------------------------------------- */
+
+.header{
+    height:30px;
+    background-color: #f1f1f1;
+    width: 100%;
+    line-height: 30px;
+}
+.w{
+    width:1210px;
+    margin: 0 auto;
+    height: 30px;
+    /* background:deeppink;
+    给导航条的版心高度和北京颜色,使其可视化,随后删除. */
+}
+.header .dt{
+    padding:0 20px 0 10px;
+    /* 测量样图,,dt盒子左边有一个10px的间隔.布局宽高最稳定,其次padding,最后margin.
+    而且margin使用有兼容问题,所以尽量用margin表示兄弟盒子之间间距.
+    所有,使用padding把表示盒子与版心隔开10px.dt盒子右边距可以根据实际情况设置大小,这里
+    设置20px. */
+    position:relative;
+    /* i盒子想以某个盒子为参照进行绝对定位,那么,参照的父盒子要相对定位. */
+}
+.dt i{
+    font:400 15px "宋体";
+    /* 设置菱形的加粗,字体和字号.700=bold */
+    /* font合写的顺序:font-style | font-variant | font-weight| font-size | line-height | font-family */
+    position:absolute;
+    /* 绝对定位,一个盒子绝对定位之后就可以设置宽高了.绝对定位不占位置. */
+    width: 15px;
+    /* 设置i盒子的宽度由讲究,使其正好菱形字号相等 */
+    height: 7px;
+    /* i盒子的高也有讲究,使其正好是菱形字号的一半.这样菱形的下半部分正好可以和i盒子重合. */
+    top:13px;
+    /* 距离dt盒子padding13px */
+    right: 3px;
+    /* 距离dt盒子的右padding3px.如果你设置dt的右padding值不是20px,这个数值也要跟着改变. */
+    /* background: pink;
+    设置一个背景颜色,看盒子效果 */
+    overflow: hidden;
+    /* 添加overflow:hidden.并清除背景颜色,小三角就这样诞生了. */
+}
+.dt s{
+    position: absolute;
+    /* s盒子也需要绝对定位,它的位置需要使i盒子和菱形的下半部分重合. */
+    top: -8px;
+    /* top正直是往下移,要想往下移就用负值. */
+    left: 0;
+    /* 因为设置i盒子的宽度和菱形的字号相同,这里可以不需要设置左边定位.如果两者不一样宽度,左定位需要根据情况设置. */
+}
