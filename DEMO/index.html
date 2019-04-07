@@ -1,34 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>京东商城</title>
-    <link rel="stylesheet" href="css/base.css">
-    <!-- 引入base.css文件,base文件必须在index文件前 -->
-    <link rel="stylesheet" href="css/index.css">
-    <!-- 引入index.css文件 -->
-    <link rel="shortcut icon" href="img/jd.ico">
+    <title>Document</title>
+    <link rel="stylesheet" href="../demo/font/iconfont.css">
+    <link rel="stylesheet" href="font/demo.css">
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            font-family: "Microsoft YaHei","iconfont" !important;
+        }
+        .container {
+            width: 500px;
+            height: 500px;
+            border: 50px solid crimson;
+            border-radius: 360px;
+            background-color: rgb(28, 175, 35);
+            position: relative;
+        }
+        .center {
+            width: 200px;
+            height: 200px;
+            border: 20px solid rgb(154, 209, 24);
+            border-radius: 360px;
+            background-color: blue;
+            position: absolute;
+            top:140px;
+            left:140px;
+        }
+        p {
+            font-size: 20px;
+            margin:80px 60px;
+            width:330px;
+            height: 50px;
+            color: rgb(255, 252, 250);
+            background:rgb(207, 12, 12);
+            border-radius: 10px;
+        }
+        i {
+            font-size: 100px;
+        }
+    </style>
+   
 </head>
-
 <body>
-    <div class="header">
-        <div class="w">
-            <div class="fl">
-                <!-- 左盒子 -->
-                <!-- 类名为公共类,左浮动 -->
-                <div class="dt">
-                    送至:北京
-                    <i><s>◇</s></i>
-                </div>
-            </div>
-            <div class="fr">
-                <!-- 右盒子 -->
-            </div>
+    <div class="container">
+        <div class="center">
+            <p> <i class="icon-shuye-"></i> hello world</p>
         </div>
     </div>
 </body>
-
 </html>

@@ -149,3 +149,12 @@ a:hover{
         display:block;
     }
 }
+.container{
+    margin:0 auto;
+}
+.container .head{
+    background-color: #666;
+}
+.container .head .logo{
+    color:#f1f1f1;
+}
