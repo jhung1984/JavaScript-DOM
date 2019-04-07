@@ -49,3 +49,7 @@ def my_abs(x):
     else:
         return -x
 
+import math
+def quadratic(a,b,c):
+    a * math.sqrt(x) + b * x + c = 0
+    return x
