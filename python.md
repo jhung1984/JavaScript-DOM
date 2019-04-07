@@ -107,3 +107,25 @@ pass可用来作为占位符.
 函数执行完毕也没有return语句时，自动return None。
 
 函数可以同时返回多个值，但其实就是一个tuple。
+
+### 函数的参数
+
+#### 位置参数
+    def power(x):
+        return x*x
+
+    def power(x,n):
+        s = 1
+        while n > 0:
+            n = n -1
+            s = s * x
+        return s
+
+#### 默认参数
+    def power(x,n=2):
+        s = 1
+        while n > 0:
+            n = n - 1
+            s = s * x
+        return s
+默认参数可以简化函数的调用.默认参数必须指向不变对象！ 
