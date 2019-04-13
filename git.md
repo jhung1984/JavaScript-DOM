@@ -1,4 +1,6 @@
 <<<<<<< HEAD
+git config --global user.name "jhung1984"
+git config --global user.email "jhung1984@gmail.com"
 首先 git remote rm origin 	//git 远程的 origin 删除掉
  第二：git remote add origin https://github.com/jhung1984/JavaScript-DOM.git
 然后：git push -u origin master
@@ -39,12 +41,6 @@ Generating public/private rsa key pair.
 接着又会提示你输入两次密码（该密码是你push文件的时候要输入的密码，而不是github管理者的密码），
 
 当然，你也可以不输入密码，直接按回车。那么push的时候就不需要输入密码，直接提交到github上了，
-
-
-
-首先 git remote rm origin 	//git 远程的 orgin 删除掉
- 第二：git remote add origin https://github.com/jhung1984/JavaScript-DOM.git
-然后：git push -u origin master
 
 
 Fatal: 拒绝合并无关的历史
