@@ -1,3 +1,5 @@
+<!-- 通过sudo dnf install openbox安装openbox，配置文件为/etc/xdg/openbox/menu.xml,也可以通过~/.config/openbox/lxde-rc.xml进行配置 -->
+<!-- 也可以通过obconf进行简单配置，安装obconf命令为dnf install obconf -->
 </keybind>
     <keybind key="W-C-Down">
       <action name="GrowToEdgeSouth"/>
