@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+##
 git config --global user.name "jhung1984"
 git config --global user.email "jhung1984@gmail.com"
 首先 git remote rm origin 	//git 远程的 origin 删除掉
