@@ -41,3 +41,4 @@ num_all = [num1,num2,num3,num4,num5,num6,num7]
 print(num_all)
 num_all.sort()
 print(num_all)
+
