@@ -1,15 +1,17 @@
-##
+# git 设置
+
 git config --global user.name "jhung1984"
 git config --global user.email "jhung1984@gmail.com"
+设置全局配置.
+
 首先 git remote rm origin 	//git 远程的 origin 删除掉
  第二：git remote add origin https://github.com/jhung1984/JavaScript-DOM.git
 然后：git push -u origin master
-=======
 cd ~/.ssh
 ls
 ssh-keygen -t rsa -C "jhung1984@gmail.com
 在 github 上添加 SSH key 的步骤：
-1、首先需要检查你电脑是否已经有 SSH key 
+1. 首先需要检查你电脑是否已经有 SSH key 
 
 运行 git Bash 客户端，输入如下代码：
 
@@ -19,7 +21,7 @@ $ ls
 这两个命令就是检查是否已经存在 id_rsa.pub 或 id_dsa.pub 文件，如果文件已经存在，那么你可以跳过步骤2，直接进入步骤3。
 
  
-2、创建一个 SSH key 
+2. 创建一个 SSH key 
 
 $ ssh-keygen -t rsa -C "your_email@example.com"
 

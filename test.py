@@ -42,3 +42,10 @@ print(num_all)
 num_all.sort()
 print(num_all)
 
+for i in rang(1,33):
+    n = 1
+    while n < 34 :
+        i = i + i
+        n += 1
+        print(i)
+
