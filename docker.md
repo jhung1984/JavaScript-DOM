@@ -1,4 +1,7 @@
-##docker安装
+# docker
+
+## docker安装
+
 Fedora/CentOS/RHEL
 
 以下内容根据 官方文档 修改而来。
@@ -24,7 +27,8 @@ sudo sed -i 's+download.docker.com+mirrors.tuna.tsinghua.edu.cn/docker-ce+' /etc
 sudo yum makecache fast
 sudo yum install docker-ce
 
-##docker 添加组和用户
+## docker 添加组和用户
+
     sudo groupadd docker
     sudo usermod -aG docker ${USER}
 添加完成后重启docker
@@ -32,4 +36,3 @@ sudo yum install docker-ce
 切换用户
     su root
     su ${USER}
-

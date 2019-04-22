@@ -1,66 +1,43 @@
-print('''line1
-line2
-line3''')
+import random
 
-a = 'ABC'
-b = a
-a = 'XYZ'
-print(b)
+num1 = random.randint(1,33)
+print(num1)
 
-'Age:%s. Gender:%s' %(25,True)
-
-age = 3
-if age >= 18:
-    print('adult')
-elif age >=6:
-    print('teenager')
+num2 = random.randint(1,33)
+while num2 == num1 :
+    num2 = random.randint(1,33)
 else:
-    print('kid')
+    print(num2)
 
-sum = 0
-n = 99
-while n > 0:
-    sum = sum + n
-    n = n - 2
-print(sum)
+num3 = random.randint(1,33)
+while num3 == num2 or num3 == num1:
+    num3 = random.randint(1,33)
+else:
+    print(num3)
 
-n = 1
-while n <= 100:
-    if n > 10:
-        break
-    print(n)
-    n = n + 1
-print('END')
 
-n = 0
-while n < 10:
-    n = n +1
-    if n % 2 == 0:
-        continue
-    print(n)
+num4 = random.randint(1,33)
+while num4 == num1 or num4 == num2 or num4 == num3:
+    num4 = random.randint(1,33)
+else:
+    print(num4)
 
-a = 'abc'
-b = a.replace('a','A')
-print(b)
+num5 = random.randint(1,33)
+while num5 == num1 or num5 == num2 or num5 == num3 or num5 == num4:
+    num5 = random.randint(1,33)
+else:
+    print(num5)
 
-def my_abs(x):
-    if x >= 0:
-        return x
-    else:
-        return -x
+num6 = random.randint(1,33)
+while num6 == num1 or num6 == num2 or num6 == num3 or num6 == num4 or num6 == num5:
+    num6 = random.randint(1,33)
+else:
+    print(num6)
 
-def power(x,n):
-    s = 1
-    while n > 0:
-        n = n - 1
-        s = s * x
-    return s
-print(power(4,3))
+num7 = random.randint(1,16)
+print(num7)
 
-def add_end(L=None):
-    if L is None:
-        L = []
-    L.append('END')
-    return L
-print(add_end([66]))
-
+num_all = [num1,num2,num3,num4,num5,num6,num7]
+print(num_all)
+num_all.sort()
+print(num_all)
