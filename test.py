@@ -43,3 +43,39 @@ num_all.sort()
 print(num_all)
 
 
+numbers = [12,37,5,42,8,3]
+even = []
+odd = []
+while len(numbers) > 0 :
+    number = numbers.pop()
+    if(number % 2 == 0):
+        even.append(number)
+    else:
+        odd.append(number)
+
+count = 0
+while(count < 9):
+    print('The count is :',count)
+    count += 1
+print("Goodbye")
+
+i = 1
+while i < 10:
+    i += 1
+    if i % 2 > 0:
+        continue
+    print(i)
+
+i = 1
+while i:
+    print(i)
+    i += 1
+    if i > 10:
+        break
+n = 33
+sum = 0
+count = 1
+while (count <= n):
+    sum += count
+    count += 1
+print("1到 %d 之和为:%d" % (n,sum))
