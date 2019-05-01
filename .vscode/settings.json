@@ -8,10 +8,10 @@
         "test*.py"
     ],
 <<<<<<< HEAD
-    "python.unitTest.pyTestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.unittestEnabled": false,
-    "python.unitTest.promptToConfigure": false
+    "python.testing.pyTestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.unittestEnabled": false,
+    "python.testing.promptToConfigure": false
 =======
     "python.testing.pyTestEnabled": false,
     "python.testing.nosetestsEnabled": false,
