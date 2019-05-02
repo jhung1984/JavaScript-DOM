@@ -99,4 +99,87 @@ python数字类型的完整工具包括:
     x = Fraction(1,3)
     Fraction('.25')
     Fraction(1,4)
-     
+
+## 字符串
+
+### 常见字符串常量和表达式
+
+* 操作                                    解释
+* s = ''                                空字符串
+* s = "spanm's"                         双引号和单引号相同
+* s = 's\np\ta\x00m'                    转义序列
+* s = """..."""                         三重引号字符串块
+* s = r'\temp\spam'                     Raw字符串
+* s = b'spam'                           python3.0中的字节字符串
+* s = u'spam'                           仅在python2.6中使用的Unicode字符串
+* s1 + s2                               合并
+* print('-' * 80)                       重复
+* s[i]                                  索引
+* s[i:j:k]                              分片:索引x对象中的元素,从偏移位i直到偏移为j-1,每隔k元素索引一次
+* len(s)                                求长度
+* "a %s parrot" % kind                  字符串格式化表达式
+* "a {0} parrot".format(kind)           python2.6和python3.0中的字符串格式化方法
+* s.find('pa')                          字符串方法调用:搜索
+* s.rstrip()                            移除空格
+* s.replace('pa','xx')                  替换
+* s.split(',')                          用展位符分隔
+* s.isdigit()                           内容测试
+* s.lower()                             短信息转换
+* s.endswith('spam')                    结束测试
+* 'spam'.join(strlist)                  嵌入分隔符
+* s.encode('latin-1')                   Unicode编码等
+* for x in s: print(x)                  迭代
+* 'spam' in s                           成员关系
+* [c * 2 for c in s]                    列表解析
+
+### 字符串反斜杠字符
+
+* \newline                              忽视(连续)
+* \\                                    反斜杠(保留\)
+* \'                                    单引号(保留')
+* \"                                    双引号(保留")
+* \a                                    响铃
+* \b                                    倒退
+* \f                                    换页
+* \n                                    换行
+* \r                                    返回
+* \t                                    水平制表符
+* \v                                    垂直制表符
+* \N{id}                                Unicode数据库ID
+* \uhhhh                                Unicode16位的十六进制值
+* \uhhhhhhh                             Unicode32位的十六进制值
+* \xhh                                  十六进制值
+* \ooo                                  八进制值
+* \0                                    Null(不是字符串结尾)
+* \other                                不转义(保留)
+
+### 字符串转换工具
+
+    str(32)
+    ord('s')    转换为ASCII码
+    chr（115）  转换为字符串
+
+### 字符串方法
+
+1. 大小写转换
+    * s.lower() 返回s字符串的小写格式
+    * s.upper() 返回s字符串的大写格式
+    * s.title() 返回s字符串中所有单词首字母大写且其他字母小写的格式
+    * s.capitalize() 返回s字符串首字母大写,其他字幕小写的心字符串.
+    * s.swapcase() 对s中的所有字符串做大小写转换
+
+2. isXXX判断
+    * s.isdecimal() 测试字符串s是否为分数.
+    * s.isdigit() 测试字符串s是否为字母.
+    * s.isnumeric() 测试字符串s是否只为数字组成.
+    * s.sialpha() 测试字符串s是否只为字母组成.
+    * s.isalnum() 测试字符串s是否由字母和数字组成.
+    * s.islower() 判断是否是小写
+    * s.isupper() 判断是否为大写
+    * s.istitle() 判断是否为首字母大写
+    * s.isspace() 判断是否是空白(空格,制表符,换行符)
+    * s.isprintable() 判断是否为打印字符(制表符,换行符不是打印字符)
+    * s.isdentifier() 判断是否满足标识符定义规则
+
+3. 填充
+    * s.center(width[,fillchar]) 将字符串居中,左右两边使用fillchar进行填充,使得整个字符串的长度为width.fillchar默认为空格.
