@@ -2442,11 +2442,13 @@ num_6.sort()
 print(num_6)
 
 num7 = random.randint(1,16)
-print(num7)
-for value in RED:
-    if value == num_6.sort():
-        print("no")
-print(num_6,num7)
+num_all = num_6.append(num7)
+print(num_all)
+
+# for value in RED:
+#     if value == num_all:
+#         print("no")
+# print(num_all)
 
 
 
