@@ -1,4 +1,7 @@
+# python puzzle
+
 ## puzzle one
+
 python安装第三方库,例如安装pylint过程中出现报错:Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C ++ Build Tools"
     error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visual C++ Build Tools”
 step1:安装Microsoftvisula c++ 14.0
