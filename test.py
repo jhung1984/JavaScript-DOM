@@ -2414,8 +2414,6 @@ num3 = random.randint(1,33)
 while num3 == num2 or num3 == num1:
     num3 = random.randint(1,33)
 
-
-
 num4 = random.randint(1,33)
 while num4 == num1 or num4 == num2 or num4 == num3:
     num4 = random.randint(1,33)
@@ -2433,8 +2431,10 @@ num_6.sort()
 
 num7 = random.randint(1,16)
 
+
+num_all = num_6 + list([num7])
+
 if num_all not in RED:
     print(num_all)
 else:
     print("重新随机")
-
