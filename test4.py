@@ -37,7 +37,7 @@ num1 = []
 n = 0
 L = []
 
-while n < 100000000:
+while n < 1000:
     num1 = 0
     count = 0
     while num1 != 1:
