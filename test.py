@@ -2405,12 +2405,14 @@ RED = [[1,6,17,19,27,31,14],
 import random
 
 num1 = random.randint(1,33)
+<<<<<<< HEAD
 
+=======
+>>>>>>> b87a5b5028bc06175d43fbdbdcb2d8a131919311
 
 num2 = random.randint(1,33)
 while num2 == num1 :
     num2 = random.randint(1,33)
-
 
 num3 = random.randint(1,33)
 while num3 == num2 or num3 == num1:
@@ -2422,11 +2424,9 @@ num4 = random.randint(1,33)
 while num4 == num1 or num4 == num2 or num4 == num3:
     num4 = random.randint(1,33)
 
-
 num5 = random.randint(1,33)
 while num5 == num1 or num5 == num2 or num5 == num3 or num5 == num4:
     num5 = random.randint(1,33)
-
 
 num6 = random.randint(1,33)
 while num6 == num1 or num6 == num2 or num6 == num3 or num6 == num4 or num6 == num5:
@@ -2435,15 +2435,10 @@ while num6 == num1 or num6 == num2 or num6 == num3 or num6 == num4 or num6 == nu
 num_6 = [num1,num2,num3,num4,num5,num6]
 num_6.sort()
 
-
 num7 = random.randint(1,16)
-num_6.append(num7)
-num_all = num_6
 
 if num_all not in RED:
     print(num_all)
 else:
     print("重新随机")
-
-
 

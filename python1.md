@@ -182,4 +182,21 @@ python数字类型的完整工具包括:
     * s.isdentifier() 判断是否满足标识符定义规则
 
 3. 填充
-    * s.center(width[,fillchar]) 将字符串居中,左右两边使用fillchar进行填充,使得整个字符串的长度为width.fillchar默认为空格.
+    * s.center(width[fillchar]) 将字符串居中,左右两边使用fillchar进行填充,使得整个字符串的长度为width.fillchar默认为空格.
+    * s.ljust(width[fillchar]) 使用fillchar填充在字符串s的右边,使得整体长度为width.
+    * s.rjust(width[fillchar]) 使用fillchar填充在字符串s的右边,使得整体长度为width.
+    * s.zfill(width) 用0填充在字符串s的左边使其长度为width.如果s钱有正负号,则0填充在这两个符号后面,且符号也算长度.
+  
+4. 子串搜索
+    * s.count(sub[start[end]]) 返回字符串s中子串sub出现的次数,可以指定从哪里开始计算(start)以及计算到哪里结束(end),索引从0开始计算,不包括end边界.
+    * s.sendswith(suffix[start[end]]) 检查字符串s是否已suffix结尾,返回布尔值.suffix可以是一个元组.指定起始和结尾的搜索边界.
+    * s.startswith(prefix[start[end]]) 同上,用来判断字符串s是否以prefix开头.
+    * s.find(sub[start[end]]) 搜索字符串s中是否包含子串sub,如果包含,则返回sub的索引位置,否则返回"-1".
+    * s.rfind(sub[start[end]]) 搜索字符串s最右边子串的位置,如果只搜索到一个或没有搜索到子串,则和find()等价.
+    * s.index(sub[start[end]]) 与find()唯一不同的是找不到子串时,抛出ValueError错误。
+    * s.rindex(sub[start[end]]) 同rfind(),搜索不到子串,返回ValueError错误。
+
+5. 替换
+    * s.replace(old,new[count]) 将s字符串中的子串old替换为new字符串,如果给定count,则表示只替换前count个old子串.
+    * s.expandtabs(N) 将字符串S中的\t替换为一定数量的空格.默认N=8.注意，expandtabs（8）不是将\t替换为8个空格.另外,他不会替换换行符.
+    * s.translate(table) 
