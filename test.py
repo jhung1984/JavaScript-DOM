@@ -2405,10 +2405,6 @@ RED = [[1,6,17,19,27,31,14],
 import random
 
 num1 = random.randint(1,33)
-<<<<<<< HEAD
-
-=======
->>>>>>> b87a5b5028bc06175d43fbdbdcb2d8a131919311
 
 num2 = random.randint(1,33)
 while num2 == num1 :
