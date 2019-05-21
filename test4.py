@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-import random
+# import random
 
 # num1 = random.randint(1,33)
 
@@ -34,20 +34,24 @@ import random
 import random
 
 num1 = []
-count = 0
 n = 0
 L = []
 
-while n < 3:
-    T =[]
+while n < 100000000:
+    num1 = 0
+    count = 0
     while num1 != 1:
         num1 = random.randint(1,33)
         count += 1
-        print(count)
-    else:
-        T.append(count)
-    
+    L.append(count)
     n += 1
 
-L.extend(T)
-print('count:',count,'\n','num1:',num1,'\n','n:',n,'\n','L:',L)
+b = len(L)
+a = 0
+
+for value in L:
+    a = a + value
+
+c = a / b
+
+print(c)
