@@ -31,30 +31,30 @@
 
 # num_all = num_6 + list([num7])
 
-import random
+# import random
 
-num1 = []
-n = 0
-L = []
+# num1 = []
+# n = 0
+# L = []
 
-while n < 2500:
-    num1 = 0
-    count = 0
-    while num1 != 3:
-        num1 = random.randint(1,33)
-        count += 1
-    L.append(count)
-    n += 1
+# while n < 2500:
+#     num1 = 0
+#     count = 0
+#     while num1 != 3:
+#         num1 = random.randint(1,33)
+#         count += 1
+#     L.append(count)
+#     n += 1
 
-b = len(L)
-a = 0
+# b = len(L)
+# a = 0
 
-for value in L:
-    a = a + value
+# for value in L:
+#     a = a + value
 
-c = a / b
+# c = a / b
 
-print(c)
+# print(c)
 
 # 1出现的几率为 473/2400
 # 2出现的几率为 73/2400
@@ -89,3 +89,29 @@ print(c)
 #31出现的几率为413
 #32出现的几率为455
 #33出现的几率为373
+
+import random
+
+data = {'1':473/2400,'2':73/2400,'3':134/2400,'4':174/2400,'5':229/2400,
+'6':273/2400,'7':319/2400,'8':343/2400,'9':313/2400,'10':373/2400,'11':373/2400,
+'12':389/2400,'13':408/2400,'14':448/2400,'15':390/2400,'16':414/2400,'17':447/2400,
+'18':454/2400,'19':436/2400,'20':462/2400,'21':422/2400,'22':465/2400,'23':426/2400,
+'24':394/2400,'25':435/2400,'26':466/2400,'27':439/2400,'28':406/2400,'29':417/2400,
+'30':437/2400,'31':413/2400,'32':455/2400,'33':373/2400}
+
+def random_weight(data):
+    total = sum(data.values())
+    ra = random.uniform(0,total)
+    curr_sum = 0
+    ret = None
+    keys = data.keys()
+    
+    for k in keys:
+        curr_sum += data[k]
+        if ra <= curr_sum:
+            ret = k
+            break
+    return ret
+
+slice = [random_weight(data),random_weight(data),random_weight(data),random_weight(data),random_weight(data),random_weight(data)]
+print(random.sample(data,5))
