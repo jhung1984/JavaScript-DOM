@@ -99,6 +99,11 @@ data = {'1':473/2400,'2':73/2400,'3':134/2400,'4':174/2400,'5':229/2400,
 '24':394/2400,'25':435/2400,'26':466/2400,'27':439/2400,'28':406/2400,'29':417/2400,
 '30':437/2400,'31':413/2400,'32':455/2400,'33':373/2400}
 
+data_1 = {'1':151/2400,'2':140/2400,'3':144/2400,'4':137/2400,'5':150/2400,
+'6':147/2400,'7':156/2400,'8':127/2400,'9':163/2400,'10':143/2400,'11':160/2400,
+'12':166/2400,'13':150/2400,'14':156/2400,'15':149/2400,'16':161/2400}
+
+
 def random_weight(data):
     total = sum(data.values())
     ra = random.uniform(0,total)
@@ -114,4 +119,10 @@ def random_weight(data):
     return ret
 
 slice = [random_weight(data),random_weight(data),random_weight(data),random_weight(data),random_weight(data),random_weight(data)]
-print(random.sample(data,5))
+slice.sort()
+
+slice_1 = [random_weight(data_1)]
+
+numbers = slice + slice_1
+
+print(numbers)
